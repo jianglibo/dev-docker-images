@@ -1,0 +1,35 @@
+FROM centos:7
+
+# copy from https://github.com/rust-lang/docker-rust/blob/master/1.40.0/stretch/Dockerfile
+
+# docker build -t rust-centos7 centos7\rust\
+# docker run -ti --rm rust-centos7 /bin/bash
+
+ENV RUSTUP_HOME=/usr/local/rustup \
+    CARGO_HOME=/usr/local/cargo \
+    PATH=/usr/local/cargo/bin:$PATH \
+    RUST_VERSION=1.40.0 \
+    RUSTUP_VERSION=1.20.2
+
+RUN yum install -y wget git gcc
+
+RUN set -eux; \
+    rustArch='x86_64-unknown-linux-gnu'; \
+    rustupSha256='e68f193542c68ce83c449809d2cad262cc2bbb99640eb47c58fc1dc58cc30add'; \
+    url="https://static.rust-lang.org/rustup/archive/${RUSTUP_VERSION}/${rustArch}/rustup-init"; \
+    wget "$url"; \
+    echo "${rustupSha256} *rustup-init" | sha256sum -c -; \
+    chmod +x rustup-init; \
+    ./rustup-init -y --no-modify-path --profile minimal --default-toolchain $RUST_VERSION; \
+    rm rustup-init; \
+    chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
+    rustup --version; \
+    cargo --version; \
+    rustc --version;
+RUN set -eux; \
+    rustup component add rls rust-analysis rust-src;
+RUN set -eux; \
+    mkdir /ws; \
+    echo "export PATH=$PATH" >> /etc/profile; \
+    echo "export CARGO_HOME=$CARGO_HOME" >> /etc/profile; \
+    echo "export RUSTUP_HOME=$RUSTUP_HOME" >> /etc/profile;
