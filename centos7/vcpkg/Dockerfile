@@ -8,14 +8,15 @@ RUN set -eux; \
     yum install -y centos-release-scl devtoolset-7; \
     yum install -y centos-release-scl devtoolset-7;
 
-RUN set -eux; \
-    scl enable devtoolset-7 bash; \
-    cd /; \
-    git clone https://github.com/Microsoft/vcpkg.git;
+ RUN set -eux; \
+     scl enable devtoolset-7 bash; \
+     cd /; \
+     git clone https://github.com/Microsoft/vcpkg.git;
 
-RUN set -eux; \
-    cd /vcpkg; \
-    ./bootstrap-vcpkg.sh; \
-    ./vcpkg integrate install;
-RUN set -eux; \
-    ./vcpkg install libssh2 sqlite3 openssl;
+ RUN set -eux; \
+     scl enable devtoolset-7 bash; \
+     cd /vcpkg; \
+     ./bootstrap-vcpkg.sh; \
+     ./vcpkg integrate install;
+ RUN set -eux; \
+     ./vcpkg install libssh2 sqlite3 openssl;

@@ -11,7 +11,7 @@ ENV RUSTUP_HOME=/usr/local/rustup \
     RUST_VERSION=1.40.0 \
     RUSTUP_VERSION=1.20.2
 
-RUN yum install -y wget git gcc
+RUN yum install -y wget git
 
 RUN set -eux; \
     rustArch='x86_64-unknown-linux-gnu'; \
