@@ -11,7 +11,9 @@ RUN set -eux; \
 RUN set -eux; \
     scl enable devtoolset-7 bash; \
     cd /; \
-    git clone https://github.com/Microsoft/vcpkg.git; \
+    git clone https://github.com/Microsoft/vcpkg.git;
+
+RUN set -eux; \
     cd /vcpkg; \
     ./bootstrap-vcpkg.sh; \
     ./vcpkg integrate install;
