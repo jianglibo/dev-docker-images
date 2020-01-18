@@ -32,4 +32,4 @@ RUN set -eux; \
     mkdir /ws; \
     echo "export PATH=$PATH" >> /etc/profile; \
     echo "export CARGO_HOME=$CARGO_HOME" >> /etc/profile; \
-    echo "export RUSTUP_HOME=$RUSTUP_HOME" >> /etc/profile;
+    echo "export RUSTUP_HOME=$RUSTUP_HOME" >> /etc/profile; \

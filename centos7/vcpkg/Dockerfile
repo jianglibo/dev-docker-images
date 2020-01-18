@@ -32,4 +32,7 @@ RUN source scl_source enable devtoolset-7 rh-git218; \
     cd /vcpkg; \
     ./vcpkg install libssh2 sqlite3 openssl;
 
-RUN echo "source scl_source enable devtoolset-7 rh-git218"  >> /etc/profile
+ENV VCPKG_ROOT=/vcpkg
+
+RUN echo "source scl_source enable devtoolset-7 rh-git218"  >> /etc/profile; \
+    echo "export VCPKG_ROOT=/vcpkg" >> /etc/profile;
