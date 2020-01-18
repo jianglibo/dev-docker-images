@@ -1,4 +1,4 @@
-FROM bk-over-ssh-dev as dev
+FROM bk-over-ssh-cached-centos7 as dev
 
 # docker build -t bk-over-ssh-run centos7\bk-over-ssh-run\
 # docker run -ti --rm bk-over-ssh-run /bin/bash
@@ -6,9 +6,13 @@ FROM bk-over-ssh-dev as dev
 # default shell.
 SHELL ["/bin/sh", "-c"]
 
+# every build should do git clone.
 RUN source scl_source enable devtoolset-7 rh-git218; \
     set -eux; \
+    cd /ws; \
+    git clone https://github.com/jianglibo/bk-over-ssh.git; \
     cd /ws/bk-over-ssh; \
+    ln -s /ws/target; \
     cargo build --release;
 
 
