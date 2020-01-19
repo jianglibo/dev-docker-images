@@ -1,12 +1,13 @@
-FROM rust-vcpkg-centos7
+FROM centos7/rust-vcpkg
 
 # yum -y install yum-utils
 # repoquery --list bash
 
-# docker build -t rust-centos7-dev centos7\ssh\
-# docker run -ti --rm rust-centos7-dev /bin/bash \
-# docker run -p 222:22 --detach --name rust-centos7-dev rust-centos7-dev
-# docker inspect --format '{{ .NetworkSettings.IPAddress }}' rust-centos7-dev
+# docker build -t centos7/rust-dev-ssh centos7/ssh/
+# docker run -ti --rm centos7/rust-dev-ssh /bin/bash
+
+# docker run -p 222:22 --detach --name rust-dev-ssh centos7/rust-dev-ssh
+# docker inspect --format '{{ .NetworkSettings.IPAddress }}' rust-dev-ssh
 
 
 RUN yum install -y openssh-server openssh-clients

@@ -1,7 +1,7 @@
-FROM rust-centos7
+FROM centos7/rust
 
-# docker build -t rust-vcpkg-centos7 centos7\vcpkg\
-# docker run -ti --rm rust-vcpkg-centos7 /bin/bash
+# docker build -t centos7/rust-vcpkg centos7/vcpkg/
+# docker run -ti --rm centos7/rust-vcpkg /bin/bash
 
 # default shell.
 SHELL ["/bin/sh", "-c"]

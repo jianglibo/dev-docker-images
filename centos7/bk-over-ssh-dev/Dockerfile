@@ -1,7 +1,7 @@
-FROM bk-over-ssh-cached-centos7
+FROM centos7/bk-over-ssh-cached
 
-# docker build -t bk-over-ssh-dev centos7\bk-over-ssh-dev\
-# docker run -ti --rm bk-over-ssh-dev /bin/bash
+# docker build -t centos7/bk-over-ssh-dev centos7/bk-over-ssh-dev/
+# docker run -ti --rm centos7/bk-over-ssh-dev /bin/bash
 
 # default shell.
 SHELL ["/bin/sh", "-c"]

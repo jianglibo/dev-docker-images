@@ -2,8 +2,8 @@ FROM centos:7
 
 # copy from https://github.com/rust-lang/docker-rust/blob/master/1.40.0/stretch/Dockerfile
 
-# docker build -t rust-centos7 centos7\rust\
-# docker run -ti --rm rust-centos7 /bin/bash
+# docker build -t jianglibo/centos7/rust centos7/rust/
+# docker run -ti --rm jianglibo/centos7/rust /bin/bash
 
 ENV RUSTUP_HOME=/usr/local/rustup \
     CARGO_HOME=/usr/local/cargo \

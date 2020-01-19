@@ -1,7 +1,7 @@
-FROM rust-centos7-dev
+FROM centos7/rust-dev-ssh
 
-# docker build -t bk-over-ssh-cached-centos7 centos7\bk-over-ssh-cached\
-# docker run -ti --rm bk-over-ssh-cached-centos7 /bin/bash
+# docker build -t centos7/bk-over-ssh-cached centos7/bk-over-ssh-cached/
+# docker run -ti --rm centos7/bk-over-ssh-cached /bin/bash
 
 # default shell.
 SHELL ["/bin/sh", "-c"]
