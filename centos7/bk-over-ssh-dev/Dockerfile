@@ -1,7 +1,4 @@
-FROM centos7/bk-over-ssh-cached
-
-# docker build -t centos7/bk-over-ssh-dev centos7/bk-over-ssh-dev/
-# docker run -ti --rm centos7/bk-over-ssh-dev /bin/bash
+FROM jianglibo/c7-bk-over-ssh-cached
 
 # default shell.
 SHELL ["/bin/sh", "-c"]
@@ -9,7 +6,7 @@ SHELL ["/bin/sh", "-c"]
 RUN source scl_source enable devtoolset-7 rh-git218; \
     set -eux; \
     cd /ws; \
-    git clone https://github.com/jianglibo/bk-over-ssh.git; \
-    cd /ws/bk-over-ssh; \
+    git clone https://github.com/jianglibo/bk.git; \
+    cd /ws/bk; \
     ln -s /ws/target;
-WORKDIR /ws/bk-over-ssh
+WORKDIR /ws/bk

@@ -1,10 +1,7 @@
-FROM centos7/rust-vcpkg
+FROM jianglibo/c7-vcpkg
 
 # yum -y install yum-utils
 # repoquery --list bash
-
-# docker build -t centos7/rust-dev-ssh centos7/ssh/
-# docker run -ti --rm centos7/rust-dev-ssh /bin/bash
 
 # docker run -p 222:22 --detach --name rust-dev-ssh centos7/rust-dev-ssh
 # docker inspect --format '{{ .NetworkSettings.IPAddress }}' rust-dev-ssh

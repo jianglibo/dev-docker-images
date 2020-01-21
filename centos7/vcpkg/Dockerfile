@@ -1,4 +1,4 @@
-FROM centos7/rust
+FROM jianglibo/c7-rust
 
 # docker build -t centos7/rust-vcpkg centos7/vcpkg/
 # docker run -ti --rm centos7/rust-vcpkg /bin/bash
