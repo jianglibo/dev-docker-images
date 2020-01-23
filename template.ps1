@@ -10,18 +10,18 @@ Param(
     [Parameter(Mandatory=$false)]
     [ValidateSet("Build", "Push", "Pull")]
     [String]
-    $Action="Build"
+    $Action="Build",
 
-    # [Parameter(Mandatory=$true,
-    # ParameterSetName="User")]
-    # [String[]]
-    # $UserName,
+    [Parameter(Mandatory=$false)]
+    [String[]]
+    $Dockerfiles=@("rust", "vcpkg", "ssh", "bk-over-ssh-cached", "bk-over-ssh-dev", "bk-over-ssh-run")
 
     # [Parameter(Mandatory=$false)]
     # [Switch]
     # $Summary
 )
 
+Set-StrictMode -Version Latest
 $Prefix = switch -Exact ($BuildGroup) {
     "centos7" {"c7"; Break}
     Default {
@@ -30,7 +30,7 @@ $Prefix = switch -Exact ($BuildGroup) {
 }
 
 # find all Dockerfile under the specified directory build them in order.
-$Dockerfiles = @("rust", "vcpkg", "ssh", "bk-over-ssh-cached", "bk-over-ssh-dev", "bk-over-ssh-run")
+# $Dockerfiles = @("rust", "vcpkg", "ssh", "bk-over-ssh-cached", "bk-over-ssh-dev", "bk-over-ssh-run")
 
 if (-not (Test-Path $BuildGroup)) {
     Return "Folder $BuildGroup doesn't exist."
@@ -47,7 +47,7 @@ $SomeArgsArray = $Dockerfiles | ForEach-Object -Process {
 # https://stackoverflow.com/questions/19652498/powershell-an-empty-pipe-element-is-not-allowed
 # it's a sub expression. $()
 # copy an array: @($a;)
-$(switch -Exact ($Action) {
+$Commands = switch -Exact ($Action) {
     "Build" {
         $SomeArgsArray | ForEach-Object -Process {
             # docker build -t centos7/bk-over-ssh-cached centos7/bk-over-ssh-cached/
@@ -63,7 +63,14 @@ $(switch -Exact ($Action) {
     Default {
         ,@()
     }
-}) | ForEach-Object -Process {& "docker" $_}
+}
+
+if ($Dockerfiles.Length -eq 1) {
+    ,@($Commands) | ForEach-Object -Process {& "docker" $_}
+} else {
+    $Commands | ForEach-Object -Process {& "docker" $_}
+}  
+
 
 
 # https://social.technet.microsoft.com/wiki/contents/articles/7703.powershell-running-executables.aspx#The_Call_Operator_amp

@@ -34,7 +34,8 @@ RUN source scl_source enable devtoolset-7 rh-git218; \
 
 ENV VCPKG_ROOT=/vcpkg
 
-RUN echo "source scl_source enable devtoolset-7 rh-git218"  >> /etc/profile; \
+RUN set -eux; \
+    echo "source scl_source enable devtoolset-7 rh-git218"  >> /etc/profile; \
     echo "export VCPKG_ROOT=/vcpkg" >> /etc/profile; \
     echo "source scl_source enable devtoolset-7 rh-git218"  >> /root/.bashrc; \
     echo "export VCPKG_ROOT=/vcpkg" >> /root/.bashrc;
