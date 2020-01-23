@@ -30,3 +30,6 @@ RUN set -eux; \
     echo "export PATH=$PATH" >> /etc/profile; \
     echo "export CARGO_HOME=$CARGO_HOME" >> /etc/profile; \
     echo "export RUSTUP_HOME=$RUSTUP_HOME" >> /etc/profile; \
+    echo "export PATH=$PATH" >> ${HOME}/.bashrc; \
+    echo "export CARGO_HOME=$CARGO_HOME" >> ${HOME}/.bashrc; \
+    echo "export RUSTUP_HOME=$RUSTUP_HOME" >> ${HOME}/.bashrc;
