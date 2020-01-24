@@ -1,4 +1,4 @@
-FROM jianglibo/c7-vcpkg
+FROM jianglibo/c7-rust-vcpkg
 
 # yum -y install yum-utils
 # repoquery --list bash
