@@ -14,7 +14,8 @@ Param(
 
     [Parameter(Mandatory=$false)]
     [String[]]
-    $Dockerfiles=@("rust", "vcpkg", "ssh", "bk-over-ssh-cached", "bk-over-ssh-dev", "bk-over-ssh-run")
+    $Dockerfiles=@("rust", "rust-vcpkg", "rust-vcpkg-ssh", "rust-vcpkg-yarn", "rust-vcpkg-yarn-ssh")
+    # , "bk-over-ssh-cached", "bk-over-ssh-dev", "bk-over-ssh-run"
 
     # [Parameter(Mandatory=$false)]
     # [Switch]
