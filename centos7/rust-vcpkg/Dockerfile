@@ -7,7 +7,7 @@ FROM jianglibo/c7-rust
 SHELL ["/bin/sh", "-c"]
 
 RUN set -eux; \
-    yum install -y --setopt=tsflags=nodocs curl unzip tar;
+    yum install -y --setopt=tsflags=nodocs curl unzip tar telnet;
 
 RUN set -eux; \
     yum install -y --setopt=tsflags=nodocs centos-release-scl devtoolset-7; \
@@ -39,3 +39,5 @@ RUN set -eux; \
     echo "export VCPKG_ROOT=/vcpkg" >> /etc/profile; \
     echo "source scl_source enable devtoolset-7 rh-git218"  >> /root/.bashrc; \
     echo "export VCPKG_ROOT=/vcpkg" >> /root/.bashrc;
+
+VOLUME /vcpkg
