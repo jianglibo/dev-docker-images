@@ -22,7 +22,7 @@ function Update-VersionString($Path, $RustVersion, $RustupVersion, $RustUpSha) {
         $Content = $Content -replace $RUST_VERSION_PLACEHOLDER, $RustVersion;
         $Content = $Content -replace $RUSTUP_VERSION_PLACEHOLDER,$RustupVersion;
         $Content = $Content -replace $RUSTUP_SHA_PLACEHOLDER,$RustUpSha;
-        $Content | Out-File -FilePath $_.FullName.Substring(0, $_.FullName.Length - 4)
+        $Content | Out-File -FilePath $_.FullName.Substring(0, $_.FullName.Length - 4) -Encoding Ascii
     }
 }
 
