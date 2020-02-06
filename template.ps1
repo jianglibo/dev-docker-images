@@ -1,5 +1,6 @@
 Param(
     [Parameter(Mandatory=$false)]
+    [ValidateSet("centos7", "centos6")]
     [String]
     $BuildGroup="centos7",
 
@@ -14,7 +15,7 @@ Param(
 
     [Parameter(Mandatory=$false)]
     [String[]]
-    $Dockerfiles=@("rust", "rust-vcpkg", "rust-vcpkg-ssh", "rust-vcpkg-yarn", "rust-vcpkg-yarn-ssh", "bk-dev")
+    $Dockerfiles=@("rust", "rust-vcpkg", "rust-vcpkg-ssh", "rust-vcpkg-yarn", "rust-vcpkg-yarn-ssh")
     # , "bk-over-ssh-cached", "bk-over-ssh-dev", "bk-over-ssh-run"
 
     # [Parameter(Mandatory=$false)]
@@ -25,6 +26,7 @@ Param(
 Set-StrictMode -Version Latest
 $Prefix = switch -Exact ($BuildGroup) {
     "centos7" {"c7"; Break}
+    "centos6" {"c6"; Break}
     Default {
         Return "No matches for $BuildGroup"
     }
