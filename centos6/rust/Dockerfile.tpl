@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:6
 
 # copy from https://github.com/rust-lang/docker-rust/blob/master/1.40.0/stretch/Dockerfile
 
