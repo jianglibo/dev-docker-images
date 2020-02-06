@@ -13,11 +13,12 @@ RUN set -eux; \
 
 RUN set -eux; \
     yum install -y --setopt=tsflags=nodocs centos-release-scl devtoolset-7; \
-    yum install -y --setopt=tsflags=nodocs centos-release-scl devtoolset-7;
-
-RUN set -eux; \
+    yum install -y --setopt=tsflags=nodocs centos-release-scl devtoolset-7; \
+    source scl_source enable devtoolset-7; \
+    yum -y install rh-git29; \
     cd /; \
-    git clone https://github.com/Microsoft/vcpkg.git;
+    git clone https://github.com/Microsoft/vcpkg.git; \
+    git checkout tags/2019.12 -b 2019.12;
 
 RUN source scl_source enable devtoolset-7; \
     set -eux; \
@@ -25,9 +26,6 @@ RUN source scl_source enable devtoolset-7; \
     ./bootstrap-vcpkg.sh; \
     ./vcpkg integrate install;
 
-RUN source scl_source enable devtoolset-7; \
-    set -eux; \
-    yum -y install rh-git29;
 
 RUN source scl_source enable devtoolset-7 rh-git29; \
     set -eux; \
