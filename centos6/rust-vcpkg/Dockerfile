@@ -27,9 +27,9 @@ RUN source scl_source enable devtoolset-7; \
 
 RUN source scl_source enable devtoolset-7; \
     set -eux; \
-    yum -y install rh-git218;
+    yum -y install rh-git29;
 
-RUN source scl_source enable devtoolset-7 rh-git218; \
+RUN source scl_source enable devtoolset-7 rh-git29; \
     set -eux; \
     cd /vcpkg; \
     yum install -y openssl-devel; \
@@ -38,10 +38,10 @@ RUN source scl_source enable devtoolset-7 rh-git218; \
 ENV VCPKG_ROOT=/vcpkg
 
 RUN set -eux; \
-    echo "source scl_source enable devtoolset-7 rh-git218"  >> /etc/profile; \
+    echo "source scl_source enable devtoolset-7 rh-git29"  >> /etc/profile; \
     echo "export VCPKG_ROOT=/vcpkg" >> /etc/profile; \
     echo "export PATH=$PATH" >> /etc/profile; \
-    echo "source scl_source enable devtoolset-7 rh-git218"  >> /root/.bashrc; \
+    echo "source scl_source enable devtoolset-7 rh-git29"  >> /root/.bashrc; \
     echo "export VCPKG_ROOT=/vcpkg" >> /root/.bashrc; \
     echo "export PATH=$PATH" >> ${HOME}/.bashrc;
 
