@@ -12,8 +12,16 @@ RUN set -eux; \
     mkdir /var/run/sshd; \
     echo 'root:root' | chpasswd; \
     sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config; \
-    /usr/bin/ssh-keygen -A;
+    ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_key -N ''; \
+    ssh-keygen -b 1024 -t rsa -f /etc/ssh/ssh_host_rsa_key -N ''; \
+    ssh-keygen -b 1024 -t dsa -f /etc/ssh/ssh_host_dsa_key -N ''; \
+    ssh-keygen -b 521 -t ecdsa -f /etc/ssh/ssh_host_ecdsa_key -N '';
 
+# bellow line doesn't work in centos6
+#    /usr/bin/ssh-keygen -A;
+# must unset X_SCLS or else scl_source wouldn't work.
+ENV X_SCLS=
+WORKDIR /ws
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
