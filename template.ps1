@@ -1,6 +1,6 @@
 Param(
     [Parameter(Mandatory=$false)]
-    [ValidateSet("centos7", "centos6")]
+    [ValidateSet("centos8", "centos7", "centos6")]
     [String]
     $BuildGroup="centos7",
 
@@ -25,6 +25,7 @@ Param(
 
 Set-StrictMode -Version Latest
 $Prefix = switch -Exact ($BuildGroup) {
+    "centos8" {"c8"; Break}
     "centos7" {"c7"; Break}
     "centos6" {"c6"; Break}
     Default {

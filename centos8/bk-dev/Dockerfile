@@ -13,4 +13,3 @@ RUN set -eux; \
     cargo install systemfd cargo-watch;
     yarn add global hasura;
     hasura completion bash --file=/etc/bash_completion.d/hasura;
-
