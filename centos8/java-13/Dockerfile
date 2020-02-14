@@ -55,6 +55,11 @@ RUN set -eux; \
 		# https://docs.oracle.com/javase/10/jshell/
 		# https://en.wikipedia.org/wiki/JShell
 	RUN set -eux; \
+		echo "export PATH=$PATH" >> /etc/profile; \
+		echo "export JAVA_HOME=/usr/java/openjdk-13" >> /etc/profile; \
+		echo "export PATH=$PATH" >> ${HOME}/.bashrc; \
+		echo "export JAVA_HOME=/usr/java/openjdk-13" >> ${HOME}/.bashrc
+	RUN set -eux; \
 		\
 		curl -fL -o /mvn.tar.gz http://mirrors.tuna.tsinghua.edu.cn/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz; \
 		mkdir /maven; \
