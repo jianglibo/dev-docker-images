@@ -39,10 +39,10 @@ ENV VCPKG_ROOT=/vcpkg
 
 RUN set -eux; \
     echo "export VCPKG_ROOT=/vcpkg" >> /etc/profile; \
-    echo "export PATH=$PATH" >> /etc/profile; \
+    echo "export PATH=/vcpkg:$PATH" >> /etc/profile; \
     echo "source scl_source enable devtoolset-7 rh-git218"  >> /etc/profile; \
     echo "export VCPKG_ROOT=/vcpkg" >> ${HOME}/.bashrc; \
-    echo "export PATH=$PATH" >> ${HOME}/.bashrc; \
+    echo "export PATH=/vcpkg:$PATH" >> ${HOME}/.bashrc; \
     echo "source scl_source enable devtoolset-7 rh-git218"  >> ${HOME}/.bashrc;
 
 VOLUME /vcpkg
