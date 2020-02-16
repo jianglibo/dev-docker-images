@@ -10,6 +10,13 @@ VOLUME /root/bk
 RUN set -eux; \
     git config --global user.email "jianglibo@gmail.com"; \
     git config --global user.name "jianglibo"; \
+    c="${CARGO_HOME}/config"; \
+    echo "[source.crates-io]" >> $c; \
+    echo "replace-with = 'sjtug'" >> $c; \
+    echo "[source.ustc]" >> $c; \
+    echo "registry = 'https://mirrors.ustc.edu.cn/crates.io-index'" >> $c; \
+    echo "[source.sjtug]" >> $c; \
+    echo "registry = 'https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index/'" >> $c; \
     cargo install systemfd cargo-watch
 
 RUN set -eux; \
