@@ -10,8 +10,12 @@ VOLUME /root/bk
 RUN set -eux; \
     git config --global user.email "jianglibo@gmail.com"; \
     git config --global user.name "jianglibo"; \
-    cargo install systemfd cargo-watch; \
-    yarn add global hasura-cli; \
-    yarn add global graphqurl; \
+    cargo install systemfd cargo-watch
+
+RUN set -eux; \
+    yarn global add graphqurl
+
+RUN set -eux; \
+    curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash; \
     hasura completion bash --file=/etc/bash_completion.d/hasura
 
