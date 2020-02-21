@@ -12,7 +12,7 @@ RUN set -eux; \
     /usr/bin/ssh-keygen -A;
 
 VOLUME /root
-VOLUME /gatsybies
+VOLUME /gatsbies
 
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
