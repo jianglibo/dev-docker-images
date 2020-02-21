@@ -1,4 +1,4 @@
-FROM jianglibo/c7-rust-vcpkg
+FROM jianglibo/c8-rust-vcpkg
 
 # default shell.
 SHELL ["/bin/sh", "-c"]

@@ -1,4 +1,4 @@
-FROM jianglibo/c7-rust-vcpkg-yarn
+FROM jianglibo/c8-rust-vcpkg-yarn
 
 # yum -y install yum-utils
 # repoquery --list bash
