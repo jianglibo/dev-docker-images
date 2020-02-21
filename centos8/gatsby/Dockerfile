@@ -13,7 +13,8 @@ RUN set -eux; \
 
 RUN set -eux; \
     yarn global add gatsby-cli; \
-    echo "{\"cli\": {\"packageManager\": \"yarn\"}}" > ~/.config/gatsby/config.json
+    echo "{\"cli\": {\"packageManager\": \"yarn\"}}" > ~/.config/gatsby/config.json; \
+    yarn global add surge
 
 EXPOSE 8000
     
