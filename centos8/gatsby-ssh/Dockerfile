@@ -11,6 +11,9 @@ RUN set -eux; \
     sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config; \
     /usr/bin/ssh-keygen -A;
 
+VOLUME /root
+VOLUME /gatsybies
+
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 

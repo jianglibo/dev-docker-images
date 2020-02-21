@@ -13,9 +13,7 @@ RUN set -eux; \
 
 RUN set -eux; \
     yarn global add gatsby-cli; \
-    echo "{\"cli\": {\"packageManager\": \"yarn\"}}" > ~/.config/gatsby/config.json; \
-    gatsby new ap
+    echo "{\"cli\": {\"packageManager\": \"yarn\"}}" > ~/.config/gatsby/config.json
 
 EXPOSE 8000
-VOLUME /gatsybies
     
