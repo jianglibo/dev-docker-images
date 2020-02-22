@@ -7,6 +7,7 @@ EXPOSE 8000
 EXPOSE 3000
 
 VOLUME /root/bk
+
 RUN set -eux; \
     git config --global user.email "jianglibo@gmail.com"; \
     git config --global user.name "jianglibo"; \
@@ -29,3 +30,16 @@ RUN set -eux; \
     /hasura-inst.sh; \
     hasura completion bash --file=/etc/bash_completion.d/hasura
 
+RUN set -eux; \
+    yum libpng-devel; \
+    git config --global user.email "jianglibo@gmail.com"; \
+    git config --global user.name "jianglibo"
+
+RUN set -eux; \
+    yarn global add gatsby-cli; \
+    echo "{\"cli\": {\"packageManager\": \"yarn\"}}" > ~/.config/gatsby/config.json; \
+    yarn global add surge; \
+    gatsby new default-starter; \
+    cd 
+
+    

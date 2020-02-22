@@ -4,7 +4,7 @@ FROM jianglibo/c7-rust-vcpkg
 SHELL ["/bin/sh", "-c"]
 
 RUN set -eux; \
-    curl -sL https://rpm.nodesource.com/setup_10.x | bash -; \
+    curl -sL https://rpm.nodesource.com/setup_13.x | bash -; \
     yum install -y nodejs;
 
 RUN set -eux; \
