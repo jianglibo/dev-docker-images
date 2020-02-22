@@ -11,13 +11,13 @@ VOLUME /root/bk
 RUN set -eux; \
     git config --global user.email "jianglibo@gmail.com"; \
     git config --global user.name "jianglibo"; \
-    c="${CARGO_HOME}/config"; \
-    echo "[source.crates-io]" >> $c; \
-    echo "replace-with = 'sjtug'" >> $c; \
-    echo "[source.ustc]" >> $c; \
-    echo "registry = 'https://mirrors.ustc.edu.cn/crates.io-index'" >> $c; \
-    echo "[source.sjtug]" >> $c; \
-    echo "registry = 'https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index/'" >> $c; \
+#    c="${CARGO_HOME}/config"; \
+#    echo "[source.crates-io]" >> $c; \
+#    echo "replace-with = 'sjtug'" >> $c; \
+#    echo "[source.ustc]" >> $c; \
+#    echo "registry = 'https://mirrors.ustc.edu.cn/crates.io-index'" >> $c; \
+#    echo "[source.sjtug]" >> $c; \
+#    echo "registry = 'https://mirrors.sjtug.sjtu.edu.cn/git/crates.io-index/'" >> $c; \
     cargo install systemfd cargo-watch
 
 RUN set -eux; \
@@ -31,7 +31,7 @@ RUN set -eux; \
     hasura completion bash --file=/etc/bash_completion.d/hasura
 
 RUN set -eux; \
-    yum libpng-devel; \
+    yum install -y libpng-devel; \
     git config --global user.email "jianglibo@gmail.com"; \
     git config --global user.name "jianglibo"
 
@@ -39,7 +39,7 @@ RUN set -eux; \
     yarn global add gatsby-cli; \
     echo "{\"cli\": {\"packageManager\": \"yarn\"}}" > ~/.config/gatsby/config.json; \
     yarn global add surge; \
-    gatsby new default-starter; \
-    cd 
+    cd /; \
+    gatsby new default-starter
 
     
