@@ -38,4 +38,4 @@ RUN set -eux; \
     echo "export PATH=$PATH" >> ${HOME}/.bashrc; \
     echo "source scl_source enable devtoolset-7 rh-git29"  >> ${HOME}/.bashrc;
 
-VOLUME /vcpkg
+# VOLUME /vcpkg

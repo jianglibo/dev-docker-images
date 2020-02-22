@@ -34,5 +34,5 @@ RUN set -eux; \
     echo "export CARGO_HOME=$CARGO_HOME" >> ${HOME}/.bashrc; \
     echo "export RUSTUP_HOME=$RUSTUP_HOME" >> ${HOME}/.bashrc;
 
-VOLUME /usr/local/rustup
-VOLUME /usr/local/cargo
+# VOLUME /usr/local/rustup
+# VOLUME /usr/local/cargo

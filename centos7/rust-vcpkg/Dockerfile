@@ -58,4 +58,4 @@ RUN set -eux; \
 
 ENV X_SCLS=
 
-VOLUME /vcpkg
+# VOLUME /vcpkg

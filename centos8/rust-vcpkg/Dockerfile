@@ -29,4 +29,4 @@ RUN set -eux; \
     echo "export VCPKG_ROOT=/vcpkg" >> ${HOME}/.bashrc; \
     echo "export PATH=$PATH" >> ${HOME}/.bashrc;
 
-VOLUME /vcpkg
+# VOLUME /vcpkg
