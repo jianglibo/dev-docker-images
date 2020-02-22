@@ -22,12 +22,12 @@ RUN set -eux; \
 
 RUN set -eux; \
     yarn global add graphqurl
-ADD hasura-inst.sh /
+# ADD hasura-inst.sh /
 RUN set -eux; \
     \
-#    curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash; \
-    chmod a+x /hasura-inst.sh; \
-    /hasura-inst.sh; \
+    curl -L https://github.com/hasura/graphql-engine/raw/master/cli/get.sh | bash; \
+    # chmod a+x /hasura-inst.sh; \
+    # /hasura-inst.sh; \
     hasura completion bash --file=/etc/bash_completion.d/hasura
 
 RUN set -eux; \
