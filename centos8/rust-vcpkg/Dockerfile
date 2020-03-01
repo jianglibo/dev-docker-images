@@ -28,5 +28,3 @@ RUN set -eux; \
     echo "export PATH=$PATH" >> /etc/profile; \
     echo "export VCPKG_ROOT=/vcpkg" >> ${HOME}/.bashrc; \
     echo "export PATH=$PATH" >> ${HOME}/.bashrc;
-
-# VOLUME /vcpkg

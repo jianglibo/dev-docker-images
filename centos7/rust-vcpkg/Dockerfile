@@ -57,5 +57,3 @@ RUN set -eux; \
     echo "source scl_source enable devtoolset-7 rh-git218"  >> ${HOME}/.bashrc;
 
 ENV X_SCLS=
-
-# VOLUME /vcpkg
