@@ -5,7 +5,7 @@ FROM centos:8
 
 RUN set -eux; \
     yum -y rm java-1.8.0-openjdk java-1.8.0-openjdk-devel; \
-    yum install -y java-11-openjdk java-1.8.0-openjdk-devel; \
+    yum install -y java-11-openjdk java-11-openjdk-devel; \
     ar="apache-maven-3.6.3-bin.tar.gz"; \
     curl -OL "https://mirror.bit.edu.cn/apache/maven/maven-3/3.6.3/binaries/${ar}"; \
     tar zxf $ar; \
@@ -29,6 +29,8 @@ RUN set -eux; \
     echo "export JAVA_HOME=$JAVA_HOME" >> ${HOME}/.bashrc
 
 EXPOSE 22
+EXPOSE 8080
 CMD ["/usr/sbin/sshd", "-D"]
 
 # docker run -p 2227:22 -d jianglibo/java11
+# docker build -t jianglibo/java11 .

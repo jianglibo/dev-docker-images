@@ -30,6 +30,7 @@ services:
     restart: always
     ports:
      - "2227:22"
+     - "8333:8080"
 #     - "8000:8000"
 #     - "3000:3000"
 #   depends_on:
