@@ -1,0 +1,44 @@
+version: '3.6'
+services:
+#  oracle-db:
+#    image: oracle/database:12.2.0.1-se2
+#    restart: always
+#    volumes:
+#    - oracle_db_data:/opt/oracle/oradata
+#  postgres:
+#    image: postgres
+#    restart: always
+#    volumes:
+#    - db_data:/var/lib/postgresql/data
+#  graphql-engine:
+#    image: hasura/graphql-engine:v1.1.0
+#    ports:
+#    - "8080:8080"
+#    depends_on:
+#    - "postgres"
+#    restart: always
+#    environment:
+#      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:@postgres:5432/postgres
+#      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
+#      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+#      ## uncomment next line to set an admin secret
+#      HASURA_GRAPHQL_ADMIN_SECRET: 00000132abc
+#      HASURA_GRAPHQL_JWT_SECRET: ${HASURA_GRAPHQL_JWT_SECRET}
+#      ## HASURA_GRAPHQL_JWT_SECRET: '{ "type": "HS256", "key": "f73ebd01-36f0-4ee6-9967-8813b1e05c16", "claims_format": "json"}'
+  oracle-spring:
+    image: jianglibo/java11
+    restart: always
+    ports:
+     - "2227:22"
+#     - "8000:8000"
+#     - "3000:3000"
+#   depends_on:
+#     - "graphql-engine"
+#     - "oracle-db"
+    volumes:
+     - root:/root
+volumes:
+#  db_data:
+#  oracle_db_data:
+  root:
+# docker-compose up -d

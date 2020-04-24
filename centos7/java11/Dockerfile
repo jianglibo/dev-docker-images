@@ -4,7 +4,8 @@ FROM centos:8
 
 
 RUN set -eux; \
-    yum install -y java-11-openjdk; \
+    yum -y rm java-1.8.0-openjdk java-1.8.0-openjdk-devel; \
+    yum install -y java-11-openjdk java-1.8.0-openjdk-devel; \
     ar="apache-maven-3.6.3-bin.tar.gz"; \
     curl -OL "https://mirror.bit.edu.cn/apache/maven/maven-3/3.6.3/binaries/${ar}"; \
     tar zxf $ar; \
@@ -19,7 +20,7 @@ RUN set -eux; \
     /usr/bin/ssh-keygen -A;
 
 ENV PATH=/apache-maven-3.6.3/bin:$PATH; \
-    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.7.10-1.el8_1.x86_64
+    JAVA_HOME=/usr/lib/jvm/java-openjdk
 
 RUN set -eux; \
     echo "export PATH=$PATH" >> /etc/profile; \
@@ -30,4 +31,4 @@ RUN set -eux; \
 EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 
-# docker run -p 2226:22 -d jianglibo/java11
+# docker run -p 2227:22 -d jianglibo/java11
